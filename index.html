@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Я Сила — Онлайн-клуб для женщин</title>
+    <meta name="description" content="Поддерживающий онлайн-клуб с танцевальными, духовными практиками и уроками. Создан женщинами для женщин.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #5eddff;
+            --primary-dark: #3dd0f5;
+            --primary-light: rgba(94, 221, 255, 0.1);
+            --accent: #ffb6c1;
+            --dark: #2d2d2d;
+            --gray-600: #666666;
+            --gray-400: #999999;
+            --gray-200: #f5f5f5;
+            --white: #ffffff;
+            --cream: #fffaf5;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 0;
+            background: rgba(255, 250, 245, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(94, 221, 255, 0.2);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-dark);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(94, 221, 255, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--dark);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-light);
+        }
+
+        .btn-sm {
+            padding: 10px 24px;
+            font-size: 13px;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, var(--cream) 0%, rgba(94, 221, 255, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(94, 221, 255, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 182, 193, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--primary-light);
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+            font-size: 13px;
+            color: var(--dark);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+
+        .hero-title span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Section styling */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--primary-light);
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .about-card {
+            text-align: center;
+            padding: 40px 24px;
+            background: var(--cream);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(94, 221, 255, 0.15);
+        }
+
+        .about-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .about-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .about-card p {
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        /* Benefits */
+        .benefits {
+            background: linear-gradient(135deg, rgba(94, 221, 255, 0.05) 0%, var(--cream) 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .benefit-card {
+            display: flex;
+            gap: 20px;
+            padding: 28px;
+            background: var(--white);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 22px;
+        }
+
+        .benefit-card h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+        }
+
+        .benefit-card p {
+            color: var(--gray-600);
+            font-size: 14px;
+        }
+
+        /* What we offer */
+        .offers {
+            background: var(--white);
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .offer-card {
+            padding: 24px;
+            background: var(--cream);
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .offer-card:hover {
+            background: var(--primary-light);
+        }
+
+        .offer-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .offer-card h4 {
+            font-size: 15px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Team */
+        .team {
+            background: linear-gradient(135deg, var(--cream) 0%, rgba(255, 182, 193, 0.1) 100%);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .team-card {
+            text-align: center;
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px 24px;
+            transition: all 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(94, 221, 255, 0.15);
+        }
+
+        .team-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 24px;
+            border: 4px solid var(--primary);
+        }
+
+        .team-card h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .team-role {
+            color: var(--primary-dark);
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .team-card p {
+            color: var(--gray-600);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Program */
+        .program {
+            background: var(--white);
+        }
+
+        .program-card {
+            background: linear-gradient(135deg, var(--primary-light) 0%, rgba(255, 182, 193, 0.1) 100%);
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 32px;
+        }
+
+        .program-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .program-header h3 {
+            font-size: 28px;
+        }
+
+        .program-date {
+            background: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .program-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .program-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--white);
+            border-radius: 12px;
+        }
+
+        .program-item span {
+            font-size: 20px;
+        }
+
+        .program-item p {
+            font-size: 14px;
+            color: var(--dark);
+        }
+
+        /* Pricing */
+        .pricing {
+            background: linear-gradient(135deg, rgba(94, 221, 255, 0.1) 0%, var(--cream) 100%);
+        }
+
+        .pricing-badge {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .pricing-badge span {
+            background: var(--accent);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--dark);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .price-card.popular {
+            border: 3px solid var(--primary);
+        }
+
+        .price-card.popular::before {
+            content: 'Выгодно';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(94, 221, 255, 0.2);
+        }
+
+        .price-duration {
+            font-size: 16px;
+            color: var(--gray-600);
+            margin-bottom: 16px;
+        }
+
+        .price-amount {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .price-amount span {
+            font-size: 20px;
+        }
+
+        .price-note {
+            color: var(--gray-400);
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+
+        .price-card .btn {
+            width: 100%;
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--primary);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            color: var(--dark);
+            opacity: 0.8;
+            margin-bottom: 32px;
+            font-size: 18px;
+        }
+
+        .cta .btn {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .cta .btn:hover {
+            background: #1a1a1a;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 48px 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        footer p {
+            color: var(--gray-400);
+            font-size: 14px;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--dark);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--cream);
+            z-index: 1000;
+            padding: 100px 24px 40px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .about-grid,
+            .team-grid,
+            .offers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid,
+            .program-list,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .program-card {
+                padding: 32px 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 42px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Я <span>Сила</span></a>
+            <nav>
+                <a href="#about">О клубе</a>
+                <a href="#benefits">Преимущества</a>
+                <a href="#team">Команда</a>
+                <a href="#program">Программа</a>
+                <a href="#pricing">Стоимость</a>
+                <a href="#pricing" class="btn btn-primary btn-sm">Записаться</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">О клубе</a>
+        <a href="#benefits">Преимущества</a>
+        <a href="#team">Команда</a>
+        <a href="#program">Программа</a>
+        <a href="#pricing">Стоимость</a>
+        <a href="#pricing" class="btn btn-primary">Записаться</a>
+    </div>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">Онлайн-клуб для женщин</div>
+                    <h1 class="hero-title">Я <span>Сила</span></h1>
+                    <p class="hero-subtitle">
+                        Поддерживающий онлайн-клуб, созданный женщинами для женщин.
+                        Танцевальные и духовные практики, уроки и тёплое комьюнити единомышленниц.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#pricing" class="btn btn-primary">Записаться в клуб</a>
+                        <a href="https://t.me/your_telegram" class="btn btn-outline">Проконсультироваться</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Почему подписка?</div>
+                    <h2 class="section-title">Не просто курс, а живое комьюнити</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-icon">💫</div>
+                        <h3>Живое комьюнити</h3>
+                        <p>Наша цель — не просто делиться знаниями, а создать тёплое пространство с поддержкой, общением и обратной связью</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">🌸</div>
+                        <h3>Постепенное познание</h3>
+                        <p>Познание себя — процесс не быстрый. Мы хотим, чтобы для вас он был интересным, разносторонним и постоянным</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">✨</div>
+                        <h3>Разные инструменты</h3>
+                        <p>Мы подходим к саморазвитию с разных сторон, используя разные тематики месяца и разные практики</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="benefits" id="benefits">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Преимущества</div>
+                    <h2 class="section-title">Что вы получите в клубе</h2>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💰</div>
+                        <div>
+                            <h4>Экономия времени и денег</h4>
+                            <p>Подписку сделали по комфортной стоимости, которую смогут позволить себе студентки или мамы в декрете</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🕊️</div>
+                        <div>
+                            <h4>Комфортный темп</h4>
+                            <p>Мы не будем «заваливать» вас уроками — вы точно сможете уделить время себе и вдумчиво изучить материал</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💬</div>
+                        <div>
+                            <h4>Обратная связь</h4>
+                            <p>Для нас важно не просто поделиться знаниями, но и общаться с вами для эффективного обучения</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎯</div>
+                        <div>
+                            <h4>Интересные темы месяца</h4>
+                            <p>Специально для вас мы придумали классные темы месяца, которые круто применяются в жизни</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎬</div>
+                        <div>
+                            <h4>Доступные уроки</h4>
+                            <p>Не будет никаких душных уроков — только интересные и понятные материалы</p>
+                        </div>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">👯‍♀️</div>
+                        <div>
+                            <h4>Комьюнити единомышленниц</h4>
+                            <p>Возможность общаться и находить подруг среди нашего поддерживающего комьюнити</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What we offer -->
+        <section class="offers">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Что входит</div>
+                    <h2 class="section-title">Что мы предлагаем</h2>
+                    <p class="section-subtitle">2 постоянных спикера + 1 приглашённый каждый новый месяц</p>
+                </div>
+
+                <div class="offers-grid">
+                    <div class="offer-card">
+                        <div class="offer-icon">🧘‍♀️</div>
+                        <h4>Ежедневные практики по работе с состоянием</h4>
+                    </div>
+                    <div class="offer-card">
+                        <div class="offer-icon">💃</div>
+                        <h4>Танцевальные уроки каждую неделю</h4>
+                    </div>
+                    <div class="offer-card">
+                        <div class="offer-icon">🔮</div>
+                        <h4>Прогноз по энергиям от таролога</h4>
+                    </div>
+                    <div class="offer-card">
+                        <div class="offer-icon">🎙️</div>
+                        <h4>Подкаст на тему месяца</h4>
+                    </div>
+                    <div class="offer-card">
+                        <div class="offer-icon">🎓</div>
+                        <h4>Урок от приглашённого спикера</h4>
+                    </div>
+                    <div class="offer-card">
+                        <div class="offer-icon">🃏</div>
+                        <h4>Расклад таро в прямом эфире</h4>
+                    </div>
+                    <div class="offer-card">
+                        <div class="offer-icon">🤝</div>
+                        <h4>Очная встреча в Москве каждый месяц</h4>
+                    </div>
+                    <div class="offer-card">
+                        <div class="offer-icon">💌</div>
+                        <h4>Обратная связь от экспертов</h4>
+                    </div>
+                    <div class="offer-card">
+                        <div class="offer-icon">💕</div>
+                        <h4>Поддерживающее комьюнити</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="team" id="team">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Наша команда</div>
+                    <h2 class="section-title">Познакомьтесь с нами</h2>
+                </div>
+
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="https://i.ibb.co/B5NP6RnG/image.jpg" alt="Колесникова Ольга" class="team-photo">
+                        <h3>Колесникова Ольга</h3>
+                        <div class="team-role">Танцевальный педагог и создательница клуба</div>
+                        <p>Практикующая бурлеск артистка Helga De Mur и создатель бренда пэстис. Профессиональная танцовщица, блогер и человек с активной жизненной позицией. Буду делиться танцевальными практиками и поддерживать атмосферу клуба.</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://i.ibb.co/1tMpBbn0/image.jpg" alt="Диана Богданова" class="team-photo">
+                        <h3>Диана Богданова</h3>
+                        <div class="team-role">Таролог, эксперт по духовным практикам</div>
+                        <p>Буду делиться интересными подкастами и практиками по теме месяца, делать еженедельные прогнозы по общей энергии и 1 раз в месяц делать расклад таро по любому вопросу.</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://i.ibb.co/KjRSM75h/image.jpg" alt="София Маковень" class="team-photo">
+                        <h3>София Маковень</h3>
+                        <div class="team-role">Эксперт по автоматизации и AI</div>
+                        <p>Отвечаю за всю техническую часть. Создала этот сайт и автоматизировала все процессы для того, чтобы тебе было красиво, удобно и легко обучаться.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program -->
+        <section class="program" id="program">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Программа</div>
+                    <h2 class="section-title">Программа на ближайший месяц</h2>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-header">
+                        <h3>«Плохая неудобная девочка»</h3>
+                        <div class="program-date">15 апреля — 15 мая</div>
+                    </div>
+                    <p style="margin-bottom: 24px; color: var(--gray-600);">Взращиваем опору и самоценность</p>
+
+                    <div class="program-list">
+                        <div class="program-item">
+                            <span>💃</span>
+                            <p>4 еженедельных танцевальных урока</p>
+                        </div>
+                        <div class="program-item">
+                            <span>🔮</span>
+                            <p>4 еженедельных прогноза по энергиям</p>
+                        </div>
+                        <div class="program-item">
+                            <span>🎙️</span>
+                            <p>Подкаст о влиянии негативных ситуаций</p>
+                        </div>
+                        <div class="program-item">
+                            <span>🧠</span>
+                            <p>Урок от психолога про злость</p>
+                        </div>
+                        <div class="program-item">
+                            <span>🃏</span>
+                            <p>Расклад таро в прямом эфире</p>
+                        </div>
+                        <div class="program-item">
+                            <span>🤝</span>
+                            <p>Очная встреча в Москве</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section class="pricing" id="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-label">Стоимость</div>
+                    <h2 class="section-title">Выберите свой тариф</h2>
+                </div>
+
+                <div class="pricing-badge">
+                    <span>Актуальная стоимость до 15 апреля</span>
+                </div>
+
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <div class="price-duration">1 месяц</div>
+                        <div class="price-amount">1 990 <span>₽</span></div>
+                        <div class="price-note">Попробовать клуб</div>
+                        <a href="https://t.me/your_telegram" class="btn btn-outline">Записаться</a>
+                    </div>
+                    <div class="price-card popular">
+                        <div class="price-duration">3 месяца</div>
+                        <div class="price-amount">4 990 <span>₽</span></div>
+                        <div class="price-note">Экономия 990₽</div>
+                        <a href="https://t.me/your_telegram" class="btn btn-primary">Записаться</a>
+                    </div>
+                </div>
+
+                <p style="text-align: center; margin-top: 32px; color: var(--gray-400); font-size: 14px;">
+                    Далее стоимость будет повышаться по мере роста контента
+                </p>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta">
+            <div class="container">
+                <h2>Присоединяйся к нам</h2>
+                <p>Начни свой путь к себе в тёплом и поддерживающем комьюнити</p>
+                <a href="#pricing" class="btn">Записаться в клуб</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Я <span>Сила</span></div>
+            <p>&copy; 2025 Я Сила. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
