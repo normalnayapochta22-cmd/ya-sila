@@ -32,7 +32,7 @@
 
         body {
             font-family: 'Raleway', sans-serif;
-            background: var(--cream);
+            background: var(--primary);
             color: var(--dark);
             line-height: 1.7;
         }
@@ -56,9 +56,9 @@
             right: 0;
             z-index: 100;
             padding: 16px 0;
-            background: rgba(255, 250, 245, 0.95);
+            background: rgba(94, 221, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(94, 221, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         header .container {
@@ -71,12 +71,12 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 28px;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--white);
             text-decoration: none;
         }
 
         .logo span {
-            color: var(--primary);
+            color: var(--white);
         }
 
         nav {
@@ -86,15 +86,15 @@
         }
 
         nav a {
-            color: var(--gray-600);
+            color: var(--white);
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: opacity 0.3s;
         }
 
         nav a:hover {
-            color: var(--primary-dark);
+            opacity: 0.8;
         }
 
         .btn {
@@ -113,24 +113,34 @@
         }
 
         .btn-primary {
-            background: var(--primary);
+            background: var(--white);
             color: var(--dark);
         }
 
         .btn-primary:hover {
-            background: var(--primary-dark);
+            background: var(--cream);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(94, 221, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .btn-outline {
             background: transparent;
-            color: var(--dark);
-            border: 2px solid var(--primary);
+            color: var(--white);
+            border: 2px solid var(--white);
         }
 
         .btn-outline:hover {
-            background: var(--primary-light);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-dark {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .btn-dark:hover {
+            background: #1a1a1a;
+            transform: translateY(-2px);
         }
 
         .btn-sm {
@@ -144,7 +154,7 @@
             display: flex;
             align-items: center;
             padding: 120px 0 80px;
-            background: linear-gradient(135deg, var(--cream) 0%, rgba(94, 221, 255, 0.05) 100%);
+            background: var(--primary);
             position: relative;
             overflow: hidden;
         }
@@ -156,7 +166,7 @@
             right: -20%;
             width: 800px;
             height: 800px;
-            background: radial-gradient(circle, rgba(94, 221, 255, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -167,7 +177,7 @@
             left: -10%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(255, 182, 193, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
             pointer-events: none;
         }
 
@@ -182,11 +192,11 @@
         .hero-badge {
             display: inline-block;
             padding: 8px 20px;
-            background: var(--primary-light);
-            border: 1px solid var(--primary);
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 50px;
             font-size: 13px;
-            color: var(--dark);
+            color: var(--white);
             margin-bottom: 24px;
             font-weight: 500;
         }
@@ -196,16 +206,16 @@
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 24px;
-            color: var(--dark);
+            color: var(--white);
         }
 
         .hero-title span {
-            color: var(--primary);
+            color: var(--white);
         }
 
         .hero-subtitle {
             font-size: 18px;
-            color: var(--gray-600);
+            color: rgba(255, 255, 255, 0.9);
             max-width: 600px;
             margin: 0 auto 40px;
             line-height: 1.8;
@@ -644,7 +654,7 @@
             display: block;
             width: 24px;
             height: 2px;
-            background: var(--dark);
+            background: var(--white);
             margin: 5px 0;
             transition: 0.3s;
         }
@@ -668,7 +678,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: var(--cream);
+            background: var(--primary);
             z-index: 1000;
             padding: 100px 24px 40px;
             flex-direction: column;
@@ -682,7 +692,7 @@
         }
 
         .mobile-menu a {
-            color: var(--dark);
+            color: var(--white);
             text-decoration: none;
             font-size: 24px;
             font-weight: 600;
@@ -769,7 +779,8 @@
                     </p>
                     <div class="hero-buttons">
                         <a href="#pricing" class="btn btn-primary">Записаться в клуб</a>
-                        <a href="https://t.me/your_telegram" class="btn btn-outline">Проконсультироваться</a>
+                        <a href="https://t.me/+79146881543" class="btn btn-outline">Telegram</a>
+                        <a href="https://vk.ru/kolesnikova.dance" class="btn btn-outline">ВКонтакте</a>
                     </div>
                 </div>
             </div>
@@ -816,7 +827,7 @@
                         <div class="benefit-icon">💰</div>
                         <div>
                             <h4>Экономия времени и денег</h4>
-                            <p>Подписку сделали по комфортной стоимости, которую смогут позволить себе студентки или мамы в декрете</p>
+                            <p>Подписку сделали по комфортной стоимости, которую смогут позволить себе даже студентки или мамы в декрете</p>
                         </div>
                     </div>
                     <div class="benefit-card">
@@ -882,7 +893,7 @@
                     </div>
                     <div class="offer-card">
                         <div class="offer-icon">🎙️</div>
-                        <h4>Подкаст на тему месяца</h4>
+                        <h4>Подкаст от таролога на тему месяца</h4>
                     </div>
                     <div class="offer-card">
                         <div class="offer-icon">🎓</div>
@@ -1001,13 +1012,13 @@
                         <div class="price-duration">1 месяц</div>
                         <div class="price-amount">1 990 <span>₽</span></div>
                         <div class="price-note">Попробовать клуб</div>
-                        <a href="https://t.me/your_telegram" class="btn btn-outline">Записаться</a>
+                        <a href="https://t.me/+79146881543" class="btn btn-outline">Записаться</a>
                     </div>
                     <div class="price-card popular">
                         <div class="price-duration">3 месяца</div>
                         <div class="price-amount">4 990 <span>₽</span></div>
                         <div class="price-note">Экономия 990₽</div>
-                        <a href="https://t.me/your_telegram" class="btn btn-primary">Записаться</a>
+                        <a href="https://t.me/+79146881543" class="btn btn-primary">Записаться</a>
                     </div>
                 </div>
 
@@ -1022,7 +1033,11 @@
             <div class="container">
                 <h2>Присоединяйся к нам</h2>
                 <p>Начни свой путь к себе в тёплом и поддерживающем комьюнити</p>
-                <a href="#pricing" class="btn">Записаться в клуб</a>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#pricing" class="btn">Записаться в клуб</a>
+                    <a href="https://t.me/+79146881543" class="btn btn-outline" style="border-color: var(--dark); color: var(--dark);">Telegram</a>
+                    <a href="https://vk.ru/kolesnikova.dance" class="btn btn-outline" style="border-color: var(--dark); color: var(--dark);">ВКонтакте</a>
+                </div>
             </div>
         </section>
     </main>
